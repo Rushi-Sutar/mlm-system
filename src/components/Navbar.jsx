@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import CustomerTransaction from "./CustomerTransaction";
 import Payout from "./Payout";
 import UpdateUserprofile from "./profile/UpdateUserprofile";
+import StaticCommissionReport from "./StaticCommissionReport";
 
 
 function Navbar({ component }) {
@@ -41,6 +42,8 @@ function Navbar({ component }) {
           return <UpdateUserprofile/>
           case "payout":
             return <Payout/>
+          case "commissionreport":
+            return <StaticCommissionReport/>
       default:
         return <Dashboard />;
     }
@@ -112,6 +115,15 @@ function Navbar({ component }) {
             >
               <span>E-Pin</span>
             </NavLink>
+            <NavLink
+                  to="/commissionreport"
+                  className={`flex items-center p-2 rounded-md ${getNavLinkClass(
+                    "/commissionreport"
+                  )}`}
+                  onClick={handleNavLinkClick}
+                >
+                  <span>Commission Report</span>
+                </NavLink>
             {/* <NavLink
               to="/userprofile"
               className={`flex items-center p-2 rounded-md ${getNavLinkClass(
@@ -142,6 +154,7 @@ function Navbar({ component }) {
               >
                 <span>Products</span>
               </NavLink>
+              
             )}
 
             {userRole && userRole != "customer" ? (
@@ -183,6 +196,7 @@ function Navbar({ component }) {
                 >
                   <span>Customer Details</span>
                 </NavLink>
+                
                
               </>
             ) : (
