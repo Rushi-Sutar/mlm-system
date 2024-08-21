@@ -4,6 +4,7 @@ import PasswordResetModal from "../components/PasswordResetModal"; // Adjust the
 import { useDispatch } from "react-redux";
 import { signin } from "../actions/auth";
 import { IoEye, IoEyeOff } from "react-icons/io5";
+import { Designer } from "../assets";
 
 const LoginCustomer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -55,7 +56,7 @@ const LoginCustomer = () => {
       <div className="absolute w-full flex items-center justify-between mb-1 bg-white dark:bg-white p-2 md:p-4 shadow-md">
         <div className="flex items-center">
           <img
-            src="./assets/Designer.jpeg"
+            src={Designer}
             alt="Logo"
             className="h-8 w-8 mr-2 rounded-full border border-gray-300"
           />

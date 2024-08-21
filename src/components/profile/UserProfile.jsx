@@ -4,6 +4,7 @@ import { signout } from "../../actions/auth";
 import { useNavigate } from "react-router-dom";
 import { LiaSignOutAltSolid } from "react-icons/lia";
 import { IoPersonSharp } from "react-icons/io5";
+import { person_icon } from "../../assets";
 
 const UserInfo = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -40,7 +41,7 @@ const UserInfo = () => {
         onClick={handleToggle}
       >
         <img
-          src="./assets/person_icon.jpg"
+          src={person_icon}
           alt="Profile"
           className="w-10 h-10 rounded-full"
         />

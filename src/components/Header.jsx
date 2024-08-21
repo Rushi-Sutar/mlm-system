@@ -6,6 +6,7 @@ import { RiLogoutBoxRLine } from "react-icons/ri";
 import { FaBars } from "react-icons/fa";
 // import UserInfo from './profile/UpdateUserProfile';
 import UserProfile from './profile/UserProfile';
+import { Designer } from '../assets';
 
 const Header = ({ toggleMenu }) => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Header = ({ toggleMenu }) => {
             >
               <FaBars size={24} />
             </button>
-            <img src="./assets/Designer.jpeg" alt="Logo" className="h-8 w-8 mr-4 rounded-full border border-gray-300" />
+            <img src={Designer} alt="Logo" className="h-8 w-8 mr-4 rounded-full border border-gray-300" />
             <span className="text-xl text-zinc-800 dark:text-white font-bold">S1 Shoppy</span>
           </div>
           {/* <button

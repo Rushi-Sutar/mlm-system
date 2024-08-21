@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { highPerforming } from "../../actions/highPerformingCustomer";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../report/Loader";
+import { person_icon } from "../../assets";
 
 const TopPerformerChart = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ const TopPerformerChart = () => {
                   <td className="px-6 py-4 whitespace-nowrap flex items-center">
                     <img
                       className="w-10 h-10 rounded-full"
-                      src="./assets/person_icon.jpg"
+                      src={person_icon}
                       alt="Profile"
                     />
                     <div className="ml-4">

@@ -100,7 +100,6 @@ function Form() {
   const { pins, amount_received, expiry_date, status } = ePins;
   let pinId = ePins[0]?.id;
 
-
   const [selectedOptionKey, setSelectedOptionKey] = useState("");
 
   const handleSelectChange = (event) => {
@@ -324,7 +323,7 @@ function Form() {
         const { data } = await api.imageUpload(fileData);
         updatedFormData = {
           ...updatedFormData,
-          aadhar_image_link: data.body.file, 
+          aadhar_image_link: data.body.file,
         };
       } catch (error) {
         console.error("Aadhar image upload failed", error);
@@ -337,13 +336,13 @@ function Form() {
         const { data } = await api.imageUpload(fileData);
         updatedFormData = {
           ...updatedFormData,
-          pan_image_link: data.body.file, 
+          pan_image_link: data.body.file,
         };
       } catch (error) {
         console.error("PAN image upload failed", error);
       }
     }
-    
+
     dispatch(registerCustomer(updatedFormData, navigate)).then((data) => {
       setLoading(false);
       if (data && data.status == 200) {
@@ -359,7 +358,13 @@ function Form() {
       }, 3000);
     });
 
-    dispatch(sendEmail(updatedFormData.first_name, updatedFormData.email, updatedFormData.name));
+    dispatch(
+      sendEmail(
+        updatedFormData.first_name,
+        updatedFormData.email,
+        updatedFormData.name
+      )
+    );
 
     setIsSubmitted(true);
     setFormData(initialState);
@@ -644,7 +649,7 @@ function Form() {
                 <button
                   type="button"
                   onClick={prevStep}
-                  className=" mr-4 border border-zinc-300 dark:border-zinc-600 shadow-sm px-4 py-2 bg-white dark:bg-zinc-700 text-base font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-white font-bold py-2 px-4 rounded"
+                  className=" mr-4 border border-zinc-300 dark:border-zinc-600 shadow-sm bg-white dark:bg-zinc-700 text-base font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 py-2 px-4 rounded"
                 >
                   Previous
                 </button>
@@ -852,7 +857,7 @@ function Form() {
                   <button
                     type="button"
                     onClick={prevStep}
-                    className="mt-10 mr-4 border border-zinc-300 dark:border-zinc-600 shadow-sm px-4 py-2 bg-white dark:bg-zinc-700 text-base font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-white font-bold py-2 px-4 rounded"
+                    className="mt-10 mr-4 border border-zinc-300 dark:border-zinc-600 shadow-sm px-4 py-2 bg-white dark:bg-zinc-700 text-base font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 rounded"
                   >
                     Previous
                   </button>
@@ -970,7 +975,7 @@ function Form() {
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="mr-4 border border-zinc-300 dark:border-zinc-600 shadow-sm px-4 py-2 bg-white dark:bg-zinc-700 text-base font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-white font-bold py-2 px-4 rounded"
+                  className="mr-4 border border-zinc-300 dark:border-zinc-600 shadow-sm px-4 py-2 bg-white dark:bg-zinc-700 text-base font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 rounded"
                 >
                   Previous
                 </button>
@@ -1106,7 +1111,7 @@ function Form() {
                     <button
                       type="button"
                       onClick={prevStep}
-                      className=" mr-4 border border-zinc-300 dark:border-zinc-600 shadow-sm px-4 py-2 bg-white dark:bg-zinc-700 text-base font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-white font-bold py-2 px-4 rounded"
+                      className=" mr-4 border border-zinc-300 dark:border-zinc-600 shadow-sm px-4 py-2 bg-white dark:bg-zinc-700 text-base font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 rounded"
                     >
                       Previous
                     </button>

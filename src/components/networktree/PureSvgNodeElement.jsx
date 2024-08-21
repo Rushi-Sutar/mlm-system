@@ -1,4 +1,5 @@
 import React from 'react';
+import { bw_person, person_icon } from '../../assets';
 
 const textLayout = {
   vertical: {
@@ -56,14 +57,11 @@ const textLayout = {
 // };
 
 const PureSvgNodeElement = ({ nodeDatum, orientation, toggleNode, onNodeClick }) => {
-  const imageUrl = './assets/person_icon.jpg'; // Replace with your image URL
-  const imageUrlBW = './assets/bw_person.jpg'; // Replace with your image URL
-
 
   return (
     <>
       <image
-        href={nodeDatum.children.length ? imageUrl : imageUrlBW }
+        href={nodeDatum.children.length ? person_icon : bw_person }
         width={40}
         height={40}
         onClick={toggleNode}

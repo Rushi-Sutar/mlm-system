@@ -1,16 +1,16 @@
-import React, { useRef, useState } from "react";
-import designerImage from "../../public/assets/img1.jpg";
+import React, { useRef } from "react";
 import { IoAlarmSharp, IoSettings, IoBagHandle } from "react-icons/io5";
 import { FaArrowsAlt, FaUndo } from "react-icons/fa";
 import { FiSlack } from "react-icons/fi";
 import { MdPayment } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import { img1, img2, img4 } from "../assets";
 
 const LandingPage = () => {
 
 
   const sectionStyle = {
-    backgroundImage: `url(${designerImage})`,
+    backgroundImage: `url(${img1})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
@@ -124,7 +124,7 @@ const LandingPage = () => {
           </div>
           <div className="w-full md:w-1/2 p-4">
             <img
-              src="./assets/img2.jpg"
+              src={img2}
               alt="Create Your Business"
               className="rounded"
             />
@@ -185,7 +185,7 @@ const LandingPage = () => {
       <section className="bg-zinc-800 text-white py-12">
         <div className="container mx-auto flex flex-wrap items-center">
           <div className="w-full md:w-1/2 p-4">
-            <img src="./assets/img4.jpg" alt="100% Online & Secure" />
+            <img src={img4} alt="100% Online & Secure" />
           </div>
           <div className="w-full md:w-1/2 p-4">
             <h2 className="text-3xl font-bold">100% ONLINE & SECURE</h2>
