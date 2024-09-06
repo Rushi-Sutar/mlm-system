@@ -7,6 +7,7 @@ import IncomeCard from "./charts/IncomeCard";
 import CustomerJoiningGraph from "./charts/CustomerJoiningGraph";
 import FinanceData from "./charts/FinanceData";
 import IncomeVsCommissionChart from "./charts/IncomeVsCommissionChart";
+import Rewards from "./charts/Rewards";
 
 const Dashboard = () => {
   let windowWidth = window.innerWidth;
@@ -32,6 +33,7 @@ const Dashboard = () => {
       <div className="flex flex-wrap justify-center gap-8 p-6 bg-slate-100">
         <TopPerformer />
         <MemberChart />
+        <Rewards/>
       </div>
       <div className="flex justify-center gap-4 p-4">
         <PayoutChart />
