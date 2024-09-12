@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { highPerforming } from "../../actions/highPerformingCustomer";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../report/Loader";
-import { person_icon } from "../../assets";
+import { oilcan, person_icon } from "../../assets";
+import axios from "axios";
 
 const Rewards = () => {
   const dispatch = useDispatch();
@@ -14,21 +14,47 @@ const Rewards = () => {
       (state) => state?.auth?.authData?.customer?.username
   );
 
-  const highPerformance = useSelector((state) => state.highPerformingCustomer);
-  useEffect(() => {
-    dispatch(highPerforming(userName));
-  }, [dispatch]);
+  const API = axios.create({
+    baseURL:import.meta.env.VITE_API_URL,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    },
+  });
 
-  const getNewJoinMembersText = (count) => {
-    if(count >= 0 && count <= 4) return "none";
-    if(count >= 5 && count <= 9) return "Reward 1";
-    if(count >= 10 && count <= 14) return "Reward 2";
-    if(count >= 15 && count <= 20) return "Reward 3";
-    if(count >= 20) return "Reward 4";
+  API.interceptors.request.use((req) => {
+    if (localStorage.getItem("user")) {
+      req.headers.authorization = `Bearer ${
+        JSON.parse(localStorage.getItem("user")).jwt
+      }`;
+    }
+    return req;
+  });
+
+  const [response, setResponse] = useState(null);
+
+  useEffect(() => {
+    API.get(`/extracommission/${userName}`)
+      .then((res) => {
+        setResponse(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [userName]);
+
+  const getNewJoinMembersText = (data) => {
+    const amount = Number(data.amount);
+    const divideBy90 = amount / 90;
+    if (divideBy90 === 5) return <img src={oilcan} alt="Reward 1" className="h-12" />;
+    if (divideBy90 === 10) return <img src={oilcan} alt="Reward 2" className="h-12" />;
+    if (divideBy90 === 15) return <img src={oilcan} alt="Reward 3" className="h-12" />;
+    if (divideBy90 === 20) return <img src={oilcan} alt="Reward 4" className="h-12" />;
+    return "none";
   }
 
   return (
-    <div className="bg-white dark:bg-zinc-800 p-4 rounded-lg shadow-md w-half">
+    <div className="bg-white dark:bg-zinc-800 p-4 rounded-lg shadow-md w-full">
       <h1 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">REWARDS</h1>
       <div className="overflow-x-auto max-h-64">
         <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
@@ -40,9 +66,9 @@ const Rewards = () => {
           </thead>
           <tbody className="bg-white dark:bg-zinc-800 divide-y divide-gray-200 dark:divide-gray-700">
            {
-            highPerformance && highPerformance.length > 0 ? (
-              highPerformance.map((customer) => (
-                <tr key={customer.customer}>
+            response && response.length > 0 ? (
+              response.map((customer) => (
+                <tr key={customer.username}>
                   <td className="px-6 py-4 whitespace-nowrap flex items-center">
                     <img
                       className="w-10 h-10 rounded-full"
@@ -51,12 +77,12 @@ const Rewards = () => {
                     />
                     <div className="ml-4">
                       <div className="text-zinc-800 dark:text-zinc-200 font-semibold">
-                        {customer.customer}
+                        {customer.name}
                       </div>
                     </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-zinc-900 dark:text-zinc-100 text-center">
-                    {getNewJoinMembersText(customer.count)}
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-zinc-900 dark:text-zinc-100 text-left">
+                    {getNewJoinMembersText(customer)}
                   </td>
                 </tr>
               ))
@@ -73,4 +99,5 @@ const Rewards = () => {
 };
 
 export default Rewards;
+
 
