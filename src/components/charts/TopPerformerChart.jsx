@@ -20,9 +20,9 @@ const TopPerformerChart = () => {
   }, [dispatch]);
 
   return (
-    <div className="bg-white dark:bg-zinc-800 p-4 rounded-lg shadow-md w-half">
+    <div className="bg-white dark:bg-zinc-800 p-4 rounded-lg shadow-md w-full">
       <h1 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">TEAM PERFORMANCE</h1>
-      <div className="overflow-x-auto max-h-64">
+      <div className="overflow-x-auto max-h-80">
         <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
           <thead className="bg-gray-50 dark:bg-zinc-700">
             <tr>

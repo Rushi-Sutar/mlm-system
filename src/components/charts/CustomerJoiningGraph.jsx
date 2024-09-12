@@ -92,7 +92,7 @@ const CustomerJoiningGraph = ({isMobile}) => {
 
   return (
     <>
-    <div className={`${isMobile ? "" : "w-[48%]"} border-2 border-gray-300 p-2 h-[350px]`}>
+    <div className={`${isMobile ? "" : "w-[48%]"} border-2 border-gray-300 p-2 h-[395px] w-full`}>
       <div className="flex md:flex-row min-w-full items-center justify-between">
         <h2 className="text-xl font-bold mt-2 px-2">JOININGS</h2>
         <div className="relative md:ml-2 pe-6 mt-4">

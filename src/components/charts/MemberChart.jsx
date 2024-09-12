@@ -12,7 +12,7 @@ const MemberChart = () => {
   }, [dispatch]);
 
   return (
-    <div className="bg-white dark:bg-zinc-800 p-4 rounded-lg shadow-md w-full max-w-sm">
+    <div className="bg-white dark:bg-zinc-800 p-4 rounded-lg shadow-md w-full">
       <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-4">NEW MEMBERS</h2>
       <div className="overflow-x-auto max-h-64 ">
         <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">

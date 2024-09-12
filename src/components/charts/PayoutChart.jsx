@@ -126,7 +126,7 @@ const PayoutChart = () => {
 
   return (
     <div
-      className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-md mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
+      className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-md mx-auto w-full grid place-content-center"
       style={{ height: "70vh" }}
     >
       <h2 className="text-zinc-800 dark:text-zinc-200 text-lg font-semibold mb-4 text-center">

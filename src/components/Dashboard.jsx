@@ -18,26 +18,18 @@ const Dashboard = () => {
     <div className="bg-slate-100">
         <FinanceData />
         </div>
-        {smallScreen ? 
-        
-        <div className="space-x-18 py-4">
-        <CustomerJoiningGraph isMobile={true}/>
-        <IncomeVsCommissionChart isMobile={true}/>
-      </div> : 
-        
-        <div className="flex flex-wrap space-x-18 py-4 gap-2">
-        <CustomerJoiningGraph />
-        <IncomeVsCommissionChart/>
-      </div>}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
+          <CustomerJoiningGraph className="sm:col-span-1" isMobile={smallScreen} />
+          <IncomeVsCommissionChart className="sm:col-span-1" isMobile={smallScreen} />
+        </div>
       
-      <div className="flex flex-wrap justify-center gap-8 p-6 bg-slate-100">
-        <TopPerformer />
-        <MemberChart />
-        <Rewards/>
+      <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4 p-6 bg-slate-100">
+        <TopPerformer className="col-span-1" />
+        <MemberChart className="col-span-1 sm:col-span-2 lg:col-span-1" />
+        <Rewards className="col-span-1" />
+        <PayoutChart className="col-span-1"/>
       </div>
-      <div className="flex justify-center gap-4 p-4">
-        <PayoutChart />
-      </div>
+     
     </>
   );
 };

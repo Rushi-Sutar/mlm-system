@@ -61,7 +61,7 @@ const IncomeVsCommissionChart = ({isMobile}) => {
   };
 
   return (
-    <div className={`${isMobile ? "" : "w-[48%]"} border-2 p-2 h-[350px]`} >
+    <div className={`${isMobile ? "" : "w-[48%]"} border-2 p-2 h-fit w-full`} >
       <div className="flex justify-between items-center min-w-full mb-4">
         <h2 className="text-xl font-bold px-2">Income vs Commission</h2>
         <IconButton onClick={handleMenuClick}>
@@ -73,7 +73,7 @@ const IncomeVsCommissionChart = ({isMobile}) => {
           <MenuItem onClick={() => handleMenuClose('yearwise')}>Yearwise</MenuItem>
         </Menu>
       </div>
-      <div className="income-chart bg-white p-4 rounded-lg h-[280px] w-full">
+      <div className="income-chart bg-white p-4 rounded-lg h-auto w-full">
         <Bar
           data={chartData[viewType]}
           options={{

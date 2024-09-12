@@ -69,17 +69,17 @@ const FinanceData = () => {
   }, [dispatch, userRole, username]);
 
   return (
-    <div className="flex flex-wrap p-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-4 p-4">
       {userRole === "customer" ? (
         <>
-          <div className="w-mid  p-2">
+          <div>
             <CardComponent
               title="Commission Earned"
               amount={totalSum ? totalSum : <Loader />}
               tooltip="Total amount earned from commissions, including all service charges and tax."
             />
           </div>
-          <div className="w-mid  p-2">
+          <div>
             <CardComponent
               title="Pending Commission"
               amount={pendingSum ? pendingSum : <Loader />}
@@ -89,35 +89,35 @@ const FinanceData = () => {
         </>
       ) : (
         <>
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 xl:w-1/5 p-2">
+          <div>
             <CardComponent
               title="Commission Earned"
               amount={adminCommissionEarned}
               tooltip="Total amount earned from commissions, including all service charges and tax."
             />
           </div>
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 xl:w-1/5 p-2">
+          <div>
             <CardComponent
               title="Pending Commission"
               amount={adminPendingCommission}
               tooltip="Commission amount that is pending for this month."
             />
           </div>
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 xl:w-1/5 p-2">
+          <div>
             <CardComponent
               title="Amount Paid"
               amount={adminAmountPaid}
               tooltip="Total amount paid out for all services and products."
             />
           </div>
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 xl:w-1/5 p-2">
+          <div>
             <CardComponent
               title="Pending Amount"
               amount={adminPendingAmount}
               tooltip="Total amount that is pending for payment."
             />
           </div>
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 xl:w-1/5 p-2">
+          <div>
             <CardComponent
               title="Product Purchase TDS"
               amount={adminProductPurchase}
