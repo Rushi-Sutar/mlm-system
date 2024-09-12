@@ -45,7 +45,7 @@ const UserInfo = () => {
           alt="Profile"
           className="w-10 h-10 rounded-full"
         />
-        <span className="font-bold px-2">Profile</span>
+        <span className="font-bold px-2 text-white">Profile</span>
       </div>
       {isHovered && (
         <div
