@@ -14,7 +14,7 @@ const Dashboard = () => {
   let smallScreen = windowWidth <= 768;
   
   return (
-    <>
+    <div className="h-[90vh] overflow-y-auto">
     <div className="bg-slate-100">
         <FinanceData />
         </div>
@@ -30,7 +30,7 @@ const Dashboard = () => {
         <PayoutChart className="col-span-1"/>
       </div>
      
-    </>
+    </div>
   );
 };
 

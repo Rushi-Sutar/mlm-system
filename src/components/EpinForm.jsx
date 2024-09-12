@@ -100,7 +100,7 @@ const EpinForm = () => {
   }, [dispatch])
 
   return (
-    <div className="p-4 bg-zinc-50 dark:bg-zinc-800">
+    <div className="p-4 bg-zinc-50 h-full">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-xl font-semibold">E-PIN</h1>
         {userRole && userRole == "admin" && (
@@ -114,7 +114,7 @@ const EpinForm = () => {
         )}
       </div>
       {Object.keys(ePins).length > 0 ? (
-        <div className="overflow-x-auto max-h-[450px]">
+        <div className="overflow-x-auto max-h-[75vh]">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
